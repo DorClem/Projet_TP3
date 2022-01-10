@@ -7,12 +7,7 @@ Magasin::Magasin(){
 std::vector<Client> Magasin::getClient() {
 	return _clients;
 }
-void Magasin::affichetoutlesClients() {
-	for (auto element : _clients) {
-		std::cout << element;
-	}
 
-}
 
 void Magasin::addProduit( Produit produit ) {
 	_produits.push_back(produit);
@@ -21,7 +16,7 @@ void Magasin::addClient(Client client) {
 	_clients.push_back(client);
 }
 void Magasin::addCommande(Commande commande) {
-	_orders.push_back(commande);
+	_commandes.push_back(commande);
 }
 void Magasin::delProduit(int id) {
 	if (id < _produits.size()) {
@@ -34,8 +29,8 @@ void Magasin::delClient(int id) {
 	}
 }
 void Magasin::delCommande(int id) {
-	if (id < _orders.size()) {
-		_orders.erase(_orders.begin() + id);
+	if (id < _commandes.size()) {
+		_commandes.erase(_commandes.begin() + id);
 	}
 }
 std::ostream& operator<<(std::ostream & os, const Magasin & liste) {
@@ -43,6 +38,9 @@ std::ostream& operator<<(std::ostream & os, const Magasin & liste) {
 			os << element;
 		}
 		for (auto element : liste._clients) {
+			os << element;
+		}
+		for (auto element : liste._commandes) {
 			os << element;
 		}
 		return os;
@@ -82,6 +80,12 @@ void Magasin::changeQtProduit( std::string nomProduit, int nb) {
 	}
 
 }
+void Magasin::affichetoutlesClients() {
+	for (auto element : _clients) {
+		std::cout << element;
+	}
+
+}
 void Magasin::afficheClientNom(std::string nomClient) {
 	int c = 0;
 	for (int i = 0; i < _clients.size(); i++) {
@@ -114,8 +118,36 @@ void Magasin::ajouterProduitClient(Client &c, Produit p) {
 void Magasin::changeQtProduitClient(Client& c, Produit p, int nb) {
 	c.changeQtProduit(p, nb);
 }
+void Magasin::validerUnecommande(Commande& co) {
+	co.valider();
 
+}
+void Magasin::updateSatutcommande(Commande& co) {
+	co.valider();
+}
+std::vector<Commande> Magasin::getCommande() {
+	return _commandes;
+}
 
+void Magasin::afficheCommandes() {
+	for (auto element : _commandes) {
+		std::cout << element;
+	}
+}
+
+void Magasin::afficheCommandesClient(Client& client) {
+	int c = 0;
+	for (int i = 0; i < _commandes.size(); i++) {
+		if (_commandes[i].getIdClient() == client.getId()) {
+			std::cout << _commandes[i];
+			c++;
+		}
+	}
+	if (c != 1) {
+		std::cout << "Il n' y a pas de clients avec ce nom";
+	}
+
+}
 
 	
 

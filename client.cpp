@@ -89,5 +89,3 @@ void Client::delProduit(Produit& p) {
 }
 
 
-
-

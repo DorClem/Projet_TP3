@@ -5,6 +5,7 @@
 #include"commande.h"
 #include"client.h"
 #include"produit.h"
+#include"commande.h"
 class Magasin  {
 public:
 	Magasin();
@@ -15,20 +16,25 @@ public:
 	void delProduit(int id);
 	void delClient(int id);
 	void delCommande(int id);
-	void del(int id);
 	void getProduits();
 	void afficheProduit(std::string nomProduit);
 	void afficheClientNom(std::string nomClient );
 	void afficheClientId(std::string idClient);
 	void ajouterProduitClient(Client &c, Produit p);
 	void changeQtProduitClient(Client& c, Produit p, int nb);
-	
 	void changeQtProduit( std::string nomProduit , int nb);
 	std::vector<Client> getClient();
 	void affichetoutlesClients();
+	void validerUnecommande(Commande& co);
+	void updateSatutcommande(Commande& co);
+	std::vector<Commande> getCommande();
+	void afficheCommandes();
+	void afficheCommandesClient(Client& client);
+
+		
 	
 	friend std::ostream& operator<<(std::ostream& os, const Magasin& liste);
-	//ça serait bien de tout mettre les choses aussi en focntion helper 
+	 
 
 	
 
@@ -36,7 +42,7 @@ private:
 
 	std::vector < Produit > _produits;
 	std::vector< Client > _clients;
-	std::vector< Commande > _orders;
+	std::vector< Commande > _commandes;
 
 };
 
