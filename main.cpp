@@ -16,10 +16,14 @@ int main() {
 	
 	guigui.addProduit(Ps2);
 	guigui.addProduit(Ps1);
-	guigui.changeQtProduit("Ps2", 390);
-	guigui.delProduit("Ps1");
-	std::cout << Nike;
-	
+	Client clement("dormis", "clement", "cdorms");
+	Nike.addClient(clement);
+	Nike.ajouterProduitClient(clement, Ps2);
+	Nike.ajouterProduitClient(clement, Ps1);
+	clement.changeQtProduit(Ps2, 3000);
+	Nike.changeQtProduitClient(clement, Ps2, 1);
+	std::cout << clement;
+
 
 
 

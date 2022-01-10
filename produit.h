@@ -21,4 +21,5 @@ private:
 };
 std::string toString(Produit p);
 std::ostream& operator<<(std::ostream& os, const Produit& produit);
+
 #endif // !PRODUIT_H

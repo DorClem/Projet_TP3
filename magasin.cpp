@@ -4,7 +4,15 @@
 Magasin::Magasin(){
 
 }
+std::vector<Client> Magasin::getClient() {
+	return _clients;
+}
+void Magasin::affichetoutlesClients() {
+	for (auto element : _clients) {
+		std::cout << element;
+	}
 
+}
 
 void Magasin::addProduit( Produit produit ) {
 	_produits.push_back(produit);
@@ -73,6 +81,38 @@ void Magasin::changeQtProduit( std::string nomProduit, int nb) {
 		std::cout << "Il n' y a pas de produit avec ce nom";
 	}
 
+}
+void Magasin::afficheClientNom(std::string nomClient) {
+	int c = 0;
+	for (int i = 0; i < _clients.size(); i++) {
+		if (_clients[i].getNom() == nomClient) {
+			std::cout << _clients[i];
+			c++;
+		}
+	}
+	if (c != 1) {
+		std::cout << "Il n' y a pas de clients avec ce nom";
+	}
+
+}
+void Magasin::afficheClientId(std::string idClient) {
+	int c = 0;
+	for (int i = 0; i < _clients.size(); i++) {
+		if (_clients[i].getId() == idClient) {
+			std::cout << _clients[i];
+			c++;
+		}
+	}
+	if (c != 1) {
+		std::cout << "Il n' y a pas de clients avec ce nom";
+	}
+
+} 
+void Magasin::ajouterProduitClient(Client &c, Produit p) {
+	c.addProduit(p);
+}
+void Magasin::changeQtProduitClient(Client& c, Produit p, int nb) {
+	c.changeQtProduit(p, nb);
 }
 
 

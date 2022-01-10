@@ -19,8 +19,9 @@ public:
 	void addProduit(Produit produit);
 	void payer();
 	friend std::ostream& operator<<(std::ostream& os, const Client& client);
-	void changeQtProduit(std::string nomProduit, int nb);
-	void delProduit(std::string nomProduit);
+	void changeQtProduit(Produit& p, int nb);
+	void delProduitNom(std::string nomProduit);
+	void delProduit(Produit& p);
 
 	
 private:
@@ -30,6 +31,7 @@ private:
 	std::vector<Produit> _panier;
 };
 std::string toString(Client c);
+
 
 
 

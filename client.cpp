@@ -41,10 +41,10 @@ void Client::addProduit(Produit produit) {
 void Client::payer() {
 	_panier.clear();
 }
-void Client::changeQtProduit(std::string nomProduit, int nb) {
+void Client::changeQtProduit(Produit& p , int nb) {
 	int c = 0;
 	for (int i = 0; i < _panier.size(); i++) {
-		if (_panier[i].getTitle() == nomProduit) {
+		if (_panier[i].getTitle() == p.getTitle()) {
 
 
 			_panier[i].updateQuantite(nb);
@@ -56,7 +56,7 @@ void Client::changeQtProduit(std::string nomProduit, int nb) {
 	}
 
 }
-void Client::delProduit(std::string nomProduit){
+void Client::delProduitNom(std::string nomProduit){
 int c = 0;
 for (int i = 0; i < _panier.size(); i++) {
 	if (_panier[i].getTitle() == nomProduit) {
@@ -71,6 +71,23 @@ for (int i = 0; i < _panier.size(); i++) {
 }
 
 }
+
+void Client::delProduit(Produit& p) {
+	int c = 0;
+	for (int i = 0; i < _panier.size(); i++) {
+		if (_panier[i].getTitle() == p.getTitle()) {
+
+
+			_panier.erase(_panier.begin() + i);
+
+			c++;
+		}
+	}if (c != 1) {
+		std::cout << "Il n' y a pas de produit avec ce nom";
+	}
+
+}
+
 
 
 
