@@ -10,11 +10,19 @@ int main() {
 	Nike.addProduit(Ps1);
 	Nike.addProduit(Ps2);
 	
-	Client guigui("bo");
-	Client bido("hyper bo");
+	Client guigui( "dorms", "guigui", "gdorms");
+	
 	Nike.addClient(guigui);
-	Nike.addClient(bido);
-	//Nike.changeQtProduit("Ps2", x);
+	
+	guigui.addProduit(Ps2);
+	guigui.addProduit(Ps1);
+	guigui.changeQtProduit("Ps2", 390);
+	guigui.delProduit("Ps1");
+	std::cout << Nike;
+	
+
+
+
 	
 	
 	
